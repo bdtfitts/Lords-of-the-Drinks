@@ -26,6 +26,12 @@
             android:name=".PlayerSelectActivity"
             android:label="@string/title_activity_player_select" >
         </activity>
+        <activity
+            android:name=".TakePictureActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_take_picture"
+            android:theme="@style/FullscreenTheme" >
+        </activity>
     </application>
 
 </manifest>

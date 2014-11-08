@@ -9,21 +9,21 @@
     tools:context="com.example.lordsofthedrinks.StartActivity" >
 
     <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
+        android:id="@+id/play_button"
+        android:layout_width="75dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="150dp"
         android:text="@string/app_play" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
+        android:id="@+id/rules_button"
+        android:layout_width="75dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/button1"
-        android:layout_below="@+id/button1"
-        android:layout_marginTop="40dp"
+        android:layout_alignStart="@+id/play_button"
+        android:layout_below="@+id/play_button"
+        android:layout_marginTop="50dp"
         android:text="@string/app_rules" />
 
 </RelativeLayout>

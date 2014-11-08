@@ -1,16 +1,30 @@
 package com.example.lordsofthedrinks;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 public class StartActivity extends Activity {
-
+	private Button play_button;
+	private Button rules_button;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_start);
+		play_button = (Button) findViewById(R.id.play_button);
+		rules_button = (Button) findViewById(R.id.rules_button);
+		
+		play_button.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					Intent nextPage = new Intent(getApplicationContext(), PlayerSelectActivity.class);
+					startActivity(nextPage);
+				}
+		});
 	}
 
 	@Override
