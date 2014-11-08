@@ -32,7 +32,7 @@
         android:id="@+id/listView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/play_button"
+        android:layout_above="@+id/game_start_button"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/take_picture_button"
         android:paddingBottom="10dp"
@@ -41,7 +41,7 @@
     </ListView>
 
     <Button
-        android:id="@+id/play_button"
+        android:id="@+id/game_start_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

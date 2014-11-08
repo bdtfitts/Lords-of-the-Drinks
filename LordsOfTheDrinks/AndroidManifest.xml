@@ -8,6 +8,12 @@
         android:minSdkVersion="17"
         android:targetSdkVersion="17" />
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+    
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -28,10 +34,9 @@
         </activity>
         <activity
             android:name=".TakePictureActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_take_picture"
-            android:theme="@style/FullscreenTheme" >
+            android:label="@string/title_activity_take_picture" >
         </activity>
+        <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
     </application>
 
 </manifest>

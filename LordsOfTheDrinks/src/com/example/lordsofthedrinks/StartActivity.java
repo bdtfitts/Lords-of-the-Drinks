@@ -15,7 +15,7 @@ public class StartActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_start);
-		play_button = (Button) findViewById(R.id.play_button);
+		play_button = (Button) findViewById(R.id.game_start_button);
 		rules_button = (Button) findViewById(R.id.rules_button);
 		
 		play_button.setOnClickListener(new View.OnClickListener() {

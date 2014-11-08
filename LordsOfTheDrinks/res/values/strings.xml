@@ -10,7 +10,8 @@
     <string name="app_pick_player">Take Player Picture</string>
     <string name="app_game_start">Play Game</string>
     <string name="title_activity_take_picture">TakePictureActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="namehint">Name</string>
+    <string name="playerpicturetext">Player\'s Picture</string>
+    <string name="playerreadytext">Player Ready</string>
 
 </resources>
