@@ -29,12 +29,12 @@
         android:text="@string/app_pick_player" />
 
     <ListView
-        android:id="@+id/listView1"
+        android:id="@+id/playerList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/game_start_button"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/take_picture_button"
+        android:layout_centerHorizontal="true"
         android:paddingBottom="10dp"
         android:paddingTop="10dp" >
 

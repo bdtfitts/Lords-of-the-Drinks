@@ -1,23 +1,68 @@
 package com.example.lordsofthedrinks;
 
+import java.io.File;
+import java.util.ArrayList;
+
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
+
 import com.soundcloud.android.crop.Crop;
 public class PlayerSelectActivity extends Activity {
 	private Button pictureButton;
 	private Button startGameButton;
+	private ListView playerList;
+	private ArrayList<Player> players;
+	private PlayersAdapter playersAdapter;
+	private Uri picFile;
+	private final int ADD_PLAYER = 21;
 	private final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
+	/** Create a file Uri for saving an image or video */
+	private Uri getOutputMediaFileUri(){
+	      return Uri.fromFile(getOutputMediaFile());
+	}
+
+	
+	/** Create a File for saving an image or video */
+	private File getOutputMediaFile(){
+	    // To be safe, you should check that the SDCard is mounted
+	    // using Environment.getExternalStorageState() before doing this.
+
+	    File mediaStorageDir = this.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+	    // This location works best if you want the created images to be shared
+	    // between applications and persist after your app has been uninstalled.
+
+	    // Create the storage directory if it does not exist
+	    if (! mediaStorageDir.exists()){
+	        if (! mediaStorageDir.mkdirs()){
+	            return null;
+	        }
+	    }
+
+	    // Create a media file name
+	    File mediaFile;
+        mediaFile = new File(mediaStorageDir.getPath() + File.separator + "playerPicture.jpg");
+
+	    return mediaFile;
+	}
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 	    if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
 	        if (resultCode == RESULT_OK) {
-	        	new Crop(data.getData()).output(data.getData()).asSquare().withMaxSize(200, 200).start(this);
+	        	Crop photoCrop = new Crop(picFile);
+	        	photoCrop.output(picFile);
+	        	photoCrop.asSquare();
+	        	photoCrop.withMaxSize(250, 250);
+	        	photoCrop.start(this);
 	            // Image captured and saved to fileUri specified in the Intent
 	      
 	        } else if (resultCode == RESULT_CANCELED) {
@@ -28,8 +73,16 @@ public class PlayerSelectActivity extends Activity {
 	    } else if (requestCode == Crop.REQUEST_CROP) {
 	    	if (resultCode == RESULT_OK) {
 	    		Intent nextPage = new Intent(PlayerSelectActivity.this, TakePictureActivity.class);
-	    		nextPage.setData(Crop.getOutput(data));
-	        	startActivity(nextPage);
+	    		nextPage.setData(picFile);
+	        	startActivityForResult(nextPage, ADD_PLAYER);
+	    	}
+	    } else if (requestCode == ADD_PLAYER) {
+	    	if (resultCode == RESULT_OK) {
+	    		Player player = data.getParcelableExtra("Player");
+	    		if (player != null) {
+	    			players.add(player);
+	    			playersAdapter.notifyDataSetChanged();
+	    		}
 	    	}
 	    }
 	}
@@ -37,13 +90,26 @@ public class PlayerSelectActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_player_select);
+		
 		pictureButton = (Button) findViewById(R.id.take_picture_button);
 		startGameButton = (Button) findViewById(R.id.game_start_button);
+		playerList = (ListView) findViewById(R.id.playerList);
+		if (players == null) {
+			players = new ArrayList<Player>();
+		}
+		if (playersAdapter == null) {
+			playersAdapter = new PlayersAdapter(this, players);
+		}
+		
+		playerList.setAdapter(playersAdapter);
+		
 		pictureButton.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+				picFile = getOutputMediaFileUri();
+				cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, picFile);
 				startActivityForResult(cameraIntent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
 				
 			}
