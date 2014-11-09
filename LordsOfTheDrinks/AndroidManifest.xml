@@ -41,6 +41,30 @@
             android:name=".TurnStartActivity"
             android:label="@string/title_activity_turn_start" >
         </activity>
+        <activity
+            android:name=".TiltTheBeeActivity"
+            android:label="@string/title_activity_tilt_the_bee" >
+        </activity>
+        <activity
+            android:name=".TiltTheBeeResultActivity"
+            android:label="@string/title_activity_tilt_the_bee_result" >
+        </activity>
+        <activity
+            android:name=".JohnPageOneActivity"
+            android:label="@string/title_activity_john_page_one" >
+        </activity>
+        <activity
+            android:name=".JohnPageTwoActivity"
+            android:label="@string/title_activity_john_page_two" >
+        </activity>
+        <activity
+            android:name=".JohnGameActivity"
+            android:label="@string/title_activity_john_game" >
+        </activity>
+        <activity
+            android:name=".GameOverActivity"
+            android:label="@string/title_activity_game_over" >
+        </activity>
     </application>
 
 </manifest>

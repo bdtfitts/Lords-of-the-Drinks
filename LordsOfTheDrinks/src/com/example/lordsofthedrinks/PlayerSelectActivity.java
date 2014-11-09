@@ -121,7 +121,7 @@ public class PlayerSelectActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				if (players.size() < 3) {
+				if (players.size() < 0 /*!!!DEBUG, 3*/) {
 					new AlertDialog.Builder(PlayerSelectActivity.this).setMessage("You don't have enough players!").show();
 				} else {
 					Intent nextPage = new Intent(PlayerSelectActivity.this, TurnStartActivity.class);

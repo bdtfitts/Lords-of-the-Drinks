@@ -15,5 +15,21 @@
     <string name="playerreadytext">Player Ready</string>
     <string name="title_activity_turn_start">TurnStartActivity</string>
     <string name="playerchoicestringstart">Choosing...</string>
+    <string name="button_spin">Spin Me!</string>
+    <string name="button_go_to_next_game">Next</string>
+    <string name="title_activity_tilt_the_bee">TiltTheBeeActivity</string>
+    <string name="title_activity_tilt_the_bee_result">TiltTheBeeResultActivity</string>
+    <string name="text_tilt_the_bee_result">Yay! You did it! Pass the phone to the next player</string>
+    <string name="button_go_to_john">OK</string>
+    <string name="title_activity_john_page_one">JohnPageOneActivity</string>
+    <string name="text_john_page_one">The first Lord of the Drinks, John \"Quick Hands\" III, chanlenges you to a duel!</string>
+    <string name="button_go_to_john_page_two">OK</string>
+    <string name="title_activity_john_page_two">JohnPageTwoActivity</string>
+    <string name="text_john_page_two">Find the cup with the most gold to pour the most liquid in the Lords\' Cup</string>
+    <string name="button_go_to_john_game">OK</string>
+    <string name="title_activity_john_game">JohnGameActivity</string>
+    <string name="button_john_game_ready">Ready</string>
+    <string name="title_activity_game_over">GameOverActivity</string>
+    <string name="text_game_over">Game over! Thank you for playing, and enjoying responsibly!</string>
 
 </resources>
