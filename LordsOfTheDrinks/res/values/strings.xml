@@ -13,5 +13,7 @@
     <string name="namehint">Name</string>
     <string name="playerpicturetext">Player\'s Picture</string>
     <string name="playerreadytext">Player Ready</string>
+    <string name="title_activity_turn_start">TurnStartActivity</string>
+    <string name="playerchoicestringstart">Choosing...</string>
 
 </resources>

@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 import android.app.Activity;
-import android.content.Context;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -50,7 +50,9 @@ public class PlayerSelectActivity extends Activity {
 
 	    // Create a media file name
 	    File mediaFile;
-        mediaFile = new File(mediaStorageDir.getPath() + File.separator + "playerPicture.jpg");
+	    int currNumPlayers = players.size();
+        mediaFile = new File(mediaStorageDir.getPath() + File.separator + "playerPicture"+
+        					(currNumPlayers+1)+".jpg");
 
 	    return mediaFile;
 	}
@@ -119,8 +121,13 @@ public class PlayerSelectActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent nextPage = new Intent(PlayerSelectActivity.this, TakePictureActivity.class);
-				startActivity(nextPage);
+				if (players.size() < 3) {
+					new AlertDialog.Builder(PlayerSelectActivity.this).setMessage("You don't have enough players!").show();
+				} else {
+					Intent nextPage = new Intent(PlayerSelectActivity.this, TurnStartActivity.class);
+					nextPage.putParcelableArrayListExtra("Players", players);
+					startActivity(nextPage);
+				}
 			}
 		});
 	}

@@ -11,7 +11,7 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
-    
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
@@ -37,6 +37,10 @@
             android:label="@string/title_activity_take_picture" >
         </activity>
         <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
+        <activity
+            android:name=".TurnStartActivity"
+            android:label="@string/title_activity_turn_start" >
+        </activity>
     </application>
 
 </manifest>

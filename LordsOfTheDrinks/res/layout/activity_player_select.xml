@@ -10,14 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.lordsofthedrinks.PlayerSelectActivity" >
 
-    <Space
-        android:id="@+id/Space1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentTop="true"
-        android:layout_gravity="fill_vertical"
-        android:layout_toEndOf="@+id/take_picture_button" />
 
     <Button
         android:id="@+id/take_picture_button"
@@ -35,10 +27,9 @@
         android:layout_above="@+id/game_start_button"
         android:layout_below="@+id/take_picture_button"
         android:layout_centerHorizontal="true"
+        android:dividerHeight="5dp"
         android:paddingBottom="10dp"
-        android:paddingTop="10dp" >
-
-    </ListView>
+        android:paddingTop="10dp" />
 
     <Button
         android:id="@+id/game_start_button"
